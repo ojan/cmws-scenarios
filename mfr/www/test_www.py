@@ -42,50 +42,6 @@ class Suite(unittest.TestCase):
         driver.find_element_by_link_text("Connexion").click()
         driver.find_element_by_id("user_login")
 
-    def test_05_admin_login(self):
-        """Login on admin panel"""
-        user_login = driver.find_element_by_id("user_login")
-        user_pass = driver.find_element_by_id("user_pass")
-
-        user_login.clear()
-        user_login.send_keys("test@monitoring-fr")
-
-        user_pass.clear()
-        user_pass.send_keys("nagios")
-
-        wait.until(
-            lambda driver: user_pass.get_attribute("value") != "",
-            message="Field 'user_pass' not filled"
-        )
-
-        driver.find_element_by_id("wp-submit").click()
-
-        driver.find_element_by_id("adminmenu")
-
-    def test_06_admin_dashboard(self):
-        """Open dashboard"""
-        driver.find_element_by_css_selector("#menu-dashboard > a").click()
-        driver.find_element_by_id("dashboard-widgets-wrap")
-
-    def test_07_admin_logout(self):
-        """Logout"""
-        menu = driver.find_element_by_id("wp-admin-bar-my-account")
-        submenu = driver.find_element_by_css_selector("#wp-admin-bar-logout .ab-item")
-
-        # Move cursor on menu
-        ActionChains(driver).move_to_element(menu).perform()
-        wait.until(visibility_of(submenu))
-
-        # Click on submenu
-        submenu.click()
-
-        wait.until(presence_of_element_located((By.ID, "user_login")))
-
-    def test_08_admin_backtohome(self):
-        """Back to homepage"""
-        driver.find_element_by_link_text(u"← Retour sur Communauté Francophone de la Supervision Libre").click()
-        driver.find_element_by_link_text("Wiki")
-
 
 if __name__ == "__main__":
     unittest.main(verbosity=2, exit=False)
