@@ -23,7 +23,7 @@ class Suite(unittest.TestCase):
     def test_01_open_homepage(self):
         """Open homepage"""
         driver.get(base_url)
-        self.assertIn(u"Accueil du [wiki monitoring-fr.org]", driver.title)
+        self.assertIn(u"Accueil [wiki monitoring-fr.org]", driver.title)
 
     def test_02_eue(self):
         """Open eue page"""
