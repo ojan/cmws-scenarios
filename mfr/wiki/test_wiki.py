@@ -28,7 +28,7 @@ class Suite(unittest.TestCase):
     def test_02_eue(self):
         """Open eue page"""
         driver.find_element_by_link_text("Ressenti utilisateur avec sikuli").click()
-        driver.find_element_by_xpath("//h1[text()='Supervision de ressenti utilisateur avec Sikuli']")
+        driver.find_element_by_xpath("//h1[text()='Supervision du ressenti utilisateur avec Sikuli']")
 
     def test_03_search(self):
         """Test search box"""
