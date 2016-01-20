@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""Blog monitoring-fr.org"""
+
 import unittest
 
 from selenium import webdriver

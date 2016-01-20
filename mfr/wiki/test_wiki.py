@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Wiki monitoring-fr.org"""
+
 import unittest
 
 from selenium import webdriver
