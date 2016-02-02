@@ -2,11 +2,13 @@
 """Wooster Checkmy.ws"""
 
 import unittest
+from os import environ
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
 base_url = "https://wooster.checkmy.ws/"
+base_url = environ.get("URL", base_url)
 
 driver = webdriver.Firefox()
 wait = WebDriverWait(driver, 5)
